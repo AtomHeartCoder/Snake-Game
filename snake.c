@@ -22,7 +22,7 @@ void snake_create(void)                                    /* Make the snake at 
     snake_tail->y = snake_head->y + 2;
     snake_tail->next = NULL;
     for(p = snake_head; p != NULL; p = p->next)
-        goprint(p->x, p->y, "ก๖");
+        goprint(p->x, p->y, "ยกรถ");
 }
 
 void snake_control(void)
@@ -36,7 +36,7 @@ void snake_control(void)
 			if(control == 'p' || control == 'P')
                 break;
 			if(control == 'w' || control == 's' || control == 'a' || control == 'd' || control == 'W' || control == 'S' || control == 'A' || control == 'D'){
-                if((direction == 'w' || direction == 'w') && (control == 's' || control == 'S')) ;
+                if((direction == 'w' || direction == 'W') && (control == 's' || control == 'S')) ;
                 else if((direction == 's' || direction == 'S') && (control == 'w' || control == 'W')) ;
                 else if((direction == 'a' || direction == 'A') && (control == 'd' || control == 'D')) ;
                 else if((direction == 'd' || direction == 'D') && (control == 'a' || control == 'A')) ;
@@ -45,7 +45,7 @@ void snake_control(void)
         }
         snake_move();
     }
-    goprint(snake_head->x, snake_head->y, "กม");
+    goprint(snake_head->x, snake_head->y, "ยกร");
 }
 
 void snake_move(void)
@@ -117,7 +117,7 @@ void snake_move(void)
         *temp = front;
         temp->next = snake_head;
         snake_head = temp;
-        goprint(snake_head->x, snake_head->y, "ก๖");
+        goprint(snake_head->x, snake_head->y, "ยกรถ");
         if(front.x == award_food.x){
             score += award_score / 2 * level;
             award_food.x = -1, award_food.y = -1, award_score = 100;
@@ -137,7 +137,7 @@ void snake_move(void)
     snake_tail->next = NULL;
     snake_head->x = front.x;
     snake_head->y = front.y;
-    goprint(snake_head->x, snake_head->y, "ก๖");
+    goprint(snake_head->x, snake_head->y, "ยกรถ");
 }
 
 void snake_free(void)
